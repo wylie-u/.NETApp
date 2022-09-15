@@ -9,11 +9,11 @@ using NewWebApp.Data;
 
 #nullable disable
 
-namespace NewWebApp.Data.Migrations
+namespace NewWebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220914221737_RoleUpdate")]
-    partial class RoleUpdate
+    [Migration("20220915162736_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

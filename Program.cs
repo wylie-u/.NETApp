@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Builder;
 using NewWebApp.Data;
+using NewWebApp.Repositories;
 //using Microsoft.AspNetCore.Server;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +17,9 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+
+//add dependecy injection here
+builder.Services.AddScoped<IBookRepository, BookRepository>();
 
 var app = builder.Build();
 

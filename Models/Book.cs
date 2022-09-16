@@ -11,6 +11,8 @@ namespace NewWebApp.Models
 
         public string Year { get; set; }
 
+        public string Genre { get; set; }
+
 
 
         public Book()

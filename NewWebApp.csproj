@@ -10,6 +10,7 @@
   <ItemGroup>
     <None Remove="Views\Books\" />
     <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
+    <None Remove="Repositories\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -30,5 +31,6 @@
 
   <ItemGroup>
     <Folder Include="Views\Books\" />
+    <Folder Include="Repositories\" />
   </ItemGroup>
 </Project>

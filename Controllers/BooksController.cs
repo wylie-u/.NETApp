@@ -22,25 +22,34 @@ namespace NewWebApp.Controllers
             _bookrepository = bookRepository;
         }
 
-        public IActionResult Index()
+       
+        public IActionResult AddBook()
         {
             return View();
         }
 
-        public IActionResult AddBook()
+        public IActionResult Index()
         {
             return View();
         }
 
         // GET: /<controller>/
         [HttpGet]
-        public IActionResult GetBooks()
-        { 
-            return View("Index", _db.Books.ToList());
+        public async Task<ActionResult<Book>> GetBooksAsync()
+        {
+            var books = await _bookrepository.GetBooksAsync();
+
+            if(books == null)
+            {
+                return NotFound();
+            }
+
+            return View("Index", books);
         }
 
+        // needs work 
         [HttpPost]
-        public async Task<IActionResult> AddBook(Book book)
+        public async Task<ActionResult<IEnumerable<Book>>> AddBook(Book book)
         {
 
             await _bookrepository.AddBookAsync(book);
@@ -50,7 +59,7 @@ namespace NewWebApp.Controllers
                 return NotFound();
             }
 
-            return View("Index", book);
+            return View("Index");
 
         }
 
